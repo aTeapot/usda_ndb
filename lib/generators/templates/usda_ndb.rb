@@ -1,5 +1,5 @@
 require 'usda_ndb'
 
-class Usda_Ndb::Client
-  API_KEY = 'Your API Key'
+UsdaNdb.configure do |config|
+  config.api_key = 'Your API key'
 end

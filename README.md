@@ -40,9 +40,17 @@ UsdaNdb.list
 # => some JSON
 ```
 
+You can specify additional params. You can find reference here http://ndb.nal.usda.gov/ndb/api/doc
+
+```ruby
+# to list product groups instead of products
+UsdaNdb.list(lt: 'g')
+# => some JSON
+```
+
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/usda_ndb/fork )
+1. Fork it ( https://github.com/aTeapot/usda_ndb/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)

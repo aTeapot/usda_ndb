@@ -1,11 +1,11 @@
 module UsdaNdb
   class Client
-    def self.fetch(endpoint, params)
+    def self.fetch(endpoint, params={})
       defaults = {
-        api_key: API_KEY,
-        format: 'json'
+        api_key: UsdaNdb.api_key,
+        format: UsdaNdb.format
       }
-      address = 'http://api.nal.usda.gov/ndb'
+      address = UsdaNdb.endpoint_base
       params = defaults.merge(params)
       json = RestClient.get "#{address}/#{endpoint}", params: params
       JSON.parse(json)
