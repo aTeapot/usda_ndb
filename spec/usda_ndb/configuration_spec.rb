@@ -15,7 +15,7 @@ RSpec.describe UsdaNdb::Configuration do
 
   describe '.format' do
     it 'should return default format' do
-      expect(UsdaNdb.format).to eq UsdaNdb::Configuration::DEFAULT_FORMAT
+      expect(UsdaNdb.response_format).to eq UsdaNdb::Configuration::DEFAULT_FORMAT
     end
   end
 
@@ -36,7 +36,7 @@ RSpec.describe UsdaNdb::Configuration do
         config.api_key = 'foo'
       end
     end
-    
+
     it 'should set values back to defaults' do
       expect(UsdaNdb.api_key).to eq 'foo'
       UsdaNdb.reset

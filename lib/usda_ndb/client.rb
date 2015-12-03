@@ -3,7 +3,7 @@ module UsdaNdb
     def self.fetch(endpoint, params={})
       defaults = {
         api_key: UsdaNdb.api_key,
-        format: UsdaNdb.format
+        format: UsdaNdb.response_format
       }
       address = UsdaNdb.endpoint_base
       params = defaults.merge(params)

@@ -4,7 +4,7 @@ module UsdaNdb
     DEFAULT_ENDPOINT_BASE = 'http://api.nal.usda.gov/ndb'
     DEFAULT_FORMAT = 'json'
 
-    attr_accessor :api_key, :endpoint_base, :format
+    attr_accessor :api_key, :endpoint_base, :response_format
 
     def self.extended(base)
       base.reset
@@ -13,7 +13,7 @@ module UsdaNdb
     def reset
       self.api_key = DEFAULT_API_KEY
       self.endpoint_base = DEFAULT_ENDPOINT_BASE
-      self.format = DEFAULT_FORMAT
+      self.response_format = DEFAULT_FORMAT
     end
 
     def configure
