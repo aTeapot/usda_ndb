@@ -5,7 +5,13 @@ describe UsdaNdb do
     expect(UsdaNdb::VERSION).not_to be nil
   end
 
-  it 'does something useful' do
-    expect(false).to eq(true)
+  describe '#reports' do
+    it 'fetches report' do
+      UsdaNdb::Client.class_eval do
+        API_KEY = 'DEMO_KEY'
+      end
+      result = UsdaNdb.reports('01009')
+      expect(result['report']['food']['name']).to eq 'Cheese, cheddar'
+    end
   end
 end
