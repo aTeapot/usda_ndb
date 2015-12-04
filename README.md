@@ -22,7 +22,7 @@ Or install it yourself as:
 
 Visit http://ndb.nal.usda.gov/ndb/api/doc and get a free data.gov API key. Then create initializer
 
-    $ rails generate usda_ndb
+    $ rails generate usda_ndb:install
 
 and set your key in /config/initializers/usda_ndb.rb.
 
