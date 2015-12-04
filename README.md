@@ -24,9 +24,15 @@ Visit http://ndb.nal.usda.gov/ndb/api/doc and get a free data.gov API key. Then 
 
     $ rails generate usda_ndb
 
-and set your key in /config/initializers/usda_ndb.rb. Then you can use it.
+and set your key in /config/initializers/usda_ndb.rb.
 
+```ruby
+UsdaNdb.configure do |config|
+  config.api_key = 'Your API key'
+end
+```
 
+Then you can use it.
 
 ```ruby
 # to get nutrition data about product with concrete id(ndbno)
