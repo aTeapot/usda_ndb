@@ -2,10 +2,10 @@ require 'spec_helper'
 
 RSpec.describe UsdaNdb::Client do
   describe '.fetch' do
-    it 'should fetch given endpoint' do
+    it 'should fetch from a given endpoint' do
       VCR.use_cassette('list 20') do
         result = UsdaNdb::Client.fetch(:list, max: 20)
-        items = result['list']['item']
+        items = result[:list][:item]
         expect(items.class).to eq Array
         expect(items.length).to eq 20
       end

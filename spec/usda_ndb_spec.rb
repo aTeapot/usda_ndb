@@ -9,7 +9,7 @@ RSpec.describe UsdaNdb do
     it 'fetches report' do
       VCR.use_cassette('reports') do
         result = UsdaNdb.reports('01009')
-        expect(result['report']['food']['name']).to eq 'Cheese, cheddar'
+        expect(result[:report][:food][:name]).to eq 'Cheese, cheddar'
       end
     end
   end
@@ -18,8 +18,8 @@ RSpec.describe UsdaNdb do
     it 'list foods, food groups, nutrients etc.' do
       VCR.use_cassette('list') do
         result = UsdaNdb.list(lt: 'g')
-        items = result['list']['item']
-        expect(items[1]['name']).to eq 'Baby Foods'
+        items = result[:list][:item]
+        expect(items[1][:name]).to eq 'Baby Foods'
       end
     end
   end
@@ -28,8 +28,8 @@ RSpec.describe UsdaNdb do
     it 'searches for items with given name' do
       VCR.use_cassette('search') do
         result = UsdaNdb.search('arugula')
-        items = result['list']['item']
-        expect(items[0]['name']).to eq 'Arugula, raw'
+        items = result[:list][:item]
+        expect(items[0][:name]).to eq 'Arugula, raw'
       end
     end
   end

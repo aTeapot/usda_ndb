@@ -8,7 +8,7 @@ module UsdaNdb
       address = UsdaNdb.configuration.endpoint_base
       params = defaults.merge(params)
       json = RestClient.get "#{address}/#{endpoint}", params: params
-      JSON.parse(json)
+      JSON.parse(json, symbolize_names: true)
     end
   end
 end
