@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 RSpec.describe UsdaNdb do
+  before(:all) { configure_vcr }
+
   it 'has a version number' do
     expect(UsdaNdb::VERSION).not_to be nil
   end
