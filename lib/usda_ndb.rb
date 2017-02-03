@@ -3,6 +3,7 @@ require 'usda_ndb/version'
 require 'usda_ndb/configurable'
 require 'usda_ndb/configuration'
 require 'rest-client'
+require 'json'
 
 module UsdaNdb
   extend UsdaNdb::Configurable
