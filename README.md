@@ -1,6 +1,8 @@
 # UsdaNdb
 
-A ruby gem wrapping API of USDA National Nutrient Database.
+A ruby gem wrapping API of USDA National Nutrient Database which will let you
+instantly search for nutrition data.
+You may also consider importing the database with usda-nutrient-database gem.
 
 ## Installation
 
@@ -20,7 +22,7 @@ Or install it yourself as:
 
 ## Usage
 
-Visit http://ndb.nal.usda.gov/ndb/api/doc and get a free data.gov API key. Then create initializer
+Visit https://api.data.gov/signup/ and get a free data.gov API key. Then create initializer
 
     $ rails generate usda_ndb:install
 
@@ -40,8 +42,8 @@ UsdaNdb.reports('01208')
 # => {"report"=>{"sr"=>"28", "type"=>"Basic", "food"=>{"ndbno"=>"01208", "name"=>"Cheese, provolone, reduced fat", "nutrients"=>[{"nutrient_id"=>"255", "name"=>"Water", ...
 
 # to search for products
-UsdaNdb.search('cheese')
-# => {"list"=>{"q"=>"cheese", "sr"=>"28", "start"=>0, "end"=>150, "total"=>312, "group"=>"", "sort"=>"r", "item"=>[{"offset"=>0, "group"=>"Dairy and Egg Products", "name"=>"Cheese spread, cream cheese base", "ndbno"=>"43276"}, ...
+UsdaNdb.search('apple raw')
+# => {"list"=>{"q"=>"apple raw", "sr"=>"28", "ds"=>"any", "start"=>0, "end"=>22, "total"=>22, "group"=>"", "sort"=>"r", "item"=>[{"offset"=>0, "group"=>"Fruits and Fruit Juices", "name"=>"Apples, raw, with skin", "ndbno"=>"09003", "ds"=>"SR"}, ...
 
 # to list products
 UsdaNdb.list
