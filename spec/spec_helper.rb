@@ -1,6 +1,7 @@
 $LOAD_PATH.unshift File.expand_path('../../lib', __FILE__)
 require 'usda_ndb'
 require 'pry'
+require 'ostruct'
 
 def configure_usda_ndb
   UsdaNdb.configure do |config|

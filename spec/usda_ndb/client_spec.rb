@@ -14,7 +14,7 @@ RSpec.describe UsdaNdb::Client do
       end
 
       let(:search_term) { 'arugula' }
-      let(:response) { '{"foo":"bar"}' }
+      let(:response) { OpenStruct.new(body: '{"foo":"bar"}') }
       let(:search_address) do
         "#{UsdaNdb::Configuration::DEFAULT_ENDPOINT_BASE}/search"
       end
@@ -46,6 +46,26 @@ RSpec.describe UsdaNdb::Client do
           items = result['list']['item']
           expect(items.class).to eq Array
           expect(items.length).to eq 20
+        end
+      end
+
+      context 'when configured to return xml' do
+        before(:all) { UsdaNdb.configure { |c| c.response_format = 'xml' } }
+        after(:all) { UsdaNdb.configure { |c| c.response_format = 'json' } }
+
+        subject do
+          VCR.use_cassette('xml') do
+            described_class.fetch(:list, max: 1)
+          end
+        end
+
+        it 'does not parse it as JSON' do
+          expect(JSON).not_to receive(:parse)
+          subject
+        end
+
+        it 'returns an xml string' do
+          expect(subject).to match /\A<\?xml/
         end
       end
     end
