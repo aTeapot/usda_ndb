@@ -37,13 +37,13 @@ end
 Then you can use it.
 
 ```ruby
-# to get nutrition data about product with concrete id(ndbno)
-UsdaNdb.reports('01208')
-# => {"report"=>{"sr"=>"28", "type"=>"Basic", "food"=>{"ndbno"=>"01208", "name"=>"Cheese, provolone, reduced fat", "nutrients"=>[{"nutrient_id"=>"255", "name"=>"Water", ...
-
 # to search for products
 UsdaNdb.search('apple raw')
 # => {"list"=>{"q"=>"apple raw", "sr"=>"28", "ds"=>"any", "start"=>0, "end"=>22, "total"=>22, "group"=>"", "sort"=>"r", "item"=>[{"offset"=>0, "group"=>"Fruits and Fruit Juices", "name"=>"Apples, raw, with skin", "ndbno"=>"09003", "ds"=>"SR"}, ...
+
+# to get nutrition data about product with concrete id(ndbno)
+UsdaNdb.reports('09003')
+# => {"report"=>{"sr"=>"28", "type"=>"Basic", "food"=>{"ndbno"=>"09003", "name"=>"Apples, raw, with skin", "ds"=>"Standard Reference", "ru"=>"g", "nutrients"=>[{"nutrient_id"=>"255", "name"=>"Water", ...
 
 # to list products
 UsdaNdb.list
